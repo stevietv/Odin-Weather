@@ -1,8 +1,7 @@
 ﻿const apiKey = "5CDNM82VZU94Z4H7RFKUYE3WU";
 const baseUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
-const units = 'metric';
 
-export async function getWeatherForLocation(location) {
+export async function getWeatherForLocation(location, units) {
   try {
     let response = await fetch(`${baseUrl}${location}`, {
       method: 'POST',
@@ -38,7 +37,7 @@ function processWeather(data) {
       processDay(data.days[6])
     ]
   }
-};
+}
 
 function processDay(dailyData) {
   return {
