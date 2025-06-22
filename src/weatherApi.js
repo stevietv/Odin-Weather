@@ -1,5 +1,6 @@
 ﻿const apiKey = "5CDNM82VZU94Z4H7RFKUYE3WU";
 const baseUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
+const units = 'metric';
 
 export async function getWeatherForLocation(location) {
   try {
@@ -9,11 +10,40 @@ export async function getWeatherForLocation(location) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ key: apiKey }),
+      body: JSON.stringify({
+        key: apiKey,
+        unitGroup: units,
+      }),
     });
-    return await response.json();
+    let data = await response.json();
+    return processWeather(data);
   }
   catch (error) {
     console.log(error);
+  }
+}
+
+function processWeather(data) {
+  console.log(data);
+  return {
+    location: data.resolvedAddress,
+    description: data.description,
+    days: [
+      processDay(data.days[0]),
+      processDay(data.days[1]),
+      processDay(data.days[2]),
+      processDay(data.days[3]),
+      processDay(data.days[4]),
+      processDay(data.days[5]),
+      processDay(data.days[6])
+    ]
+  }
+};
+
+function processDay(dailyData) {
+  return {
+    high: dailyData.tempmax,
+    low: dailyData.tempmin,
+    icon: dailyData.icon
   }
 }
