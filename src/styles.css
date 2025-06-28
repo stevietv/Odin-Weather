@@ -2,3 +2,21 @@
 
 :root {
 }
+
+.weather-header {
+  text-align: center;
+}
+
+.weather-days {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.weather-block  {
+  text-align: center;
+  border: black solid 1px;
+  padding: 1rem;
+}

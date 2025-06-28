@@ -24,7 +24,7 @@ export async function getWeatherForLocation(location, units) {
 
 function processWeather(data) {
   console.log(data);
-  return {
+    return {
     location: data.resolvedAddress,
     description: data.description,
     days: [
@@ -43,6 +43,7 @@ function processDay(dailyData) {
   return {
     high: dailyData.tempmax,
     low: dailyData.tempmin,
-    icon: dailyData.icon
+    icon: dailyData.icon,
+    dateTime: dailyData.datetime,
   }
 }

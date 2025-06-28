@@ -1,5 +1,8 @@
 import './styles.css';
 import './resetStyles.css';
 import { getWeatherForLocation } from './weatherApi';
+import { displayWeather } from './displayWeather';
 
-console.log(await getWeatherForLocation("Jirnsum", 'metric'));
+let weather = await getWeatherForLocation("Jirnsum", 'metric');
+console.log(weather);
+displayWeather(weather);
