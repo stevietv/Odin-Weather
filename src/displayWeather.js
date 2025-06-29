@@ -28,11 +28,25 @@ function createWeatherBlock(day) {
   let weatherBlock = document.createElement('div');
   weatherBlock.classList.add('weather-block');
 
-  let dateContainer = document.createElement('div');
-  dateContainer.classList.add('date');
-  dateContainer.textContent = format(new Date(day.dateTime), 'ccc');
+  let dayContainer = document.createElement('div');
+  dayContainer.classList.add('day');
+  dayContainer.textContent = format(new Date(day.dateTime), 'ccc');
 
-  weatherBlock.appendChild(dateContainer);
+  weatherBlock.appendChild(dayContainer);
+
+  let iconContainer = document.createElement('img');
+  iconContainer.classList.add('icon');
+  //iconContainer.src = icons(`./${day.icon}.png`);
+
+  import(`./assets/${day.icon}.png`)
+    .then((module) => {
+      iconContainer.src = module.default;
+    })
+    .catch((error) => {
+      console.log('Error loading icon: ', error);
+    })
+
+  weatherBlock.appendChild(iconContainer);
 
   let temperatureContainer = document.createElement('div');
   temperatureContainer.classList.add('temperature');
