@@ -14,11 +14,18 @@ export async function getWeatherForLocation(location, units) {
         unitGroup: units,
       }),
     });
+    if (!response.ok) {
+      let err = new Error("HTTP status code: " + response.status);
+      err.response = response;
+      err.status = response.status;
+      throw err;
+    }
     let data = await response.json();
     return processWeather(data);
   }
   catch (error) {
     console.log(error);
+    throw error;
   }
 }
 

@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 const weatherContainer = document.querySelector('.weatherContainer');
 
 export function displayWeather(data) {
+  weatherContainer.innerHTML = '';
   let weatherHeader = createWeatherHeader(data)
   weatherContainer.appendChild(weatherHeader);
 
@@ -40,4 +41,9 @@ function createWeatherBlock(day) {
   weatherBlock.appendChild(temperatureContainer);
 
   return weatherBlock;
+}
+
+export function displayError() {
+  weatherContainer.classList.add('error');
+  weatherContainer.textContent = 'Unknown Location';
 }
