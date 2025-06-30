@@ -7,9 +7,11 @@ let units = 'metric';
 
 searchWeather("Jirnsum");
 
-const searchButton = document.getElementById('searchBtn');
+const searchForm = document.querySelector('#searchForm');
 const searchInput = document.getElementById('searchInput');
-searchButton.addEventListener('click', () => {
+
+searchForm.addEventListener('submit', (e) => {
+  e.preventDefault();
   searchWeather(searchInput.value);
 })
 
