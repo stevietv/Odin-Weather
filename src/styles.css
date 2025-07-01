@@ -35,6 +35,10 @@ html, body {
   text-align: center;
   padding: 1rem;
   background-color: #ecf0f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
 }
 
 .searchInput {
@@ -55,6 +59,14 @@ html, body {
 
 .searchBtn:hover {
   background-color: #1c5980;
+}
+
+.unitsButtons {
+  font-size: 1.5rem;
+}
+
+span.units.active {
+  color: #3498db;
 }
 
 .weatherContainer {
@@ -79,4 +91,10 @@ html, body {
   text-align: center;
   border: black solid 1px;
   padding: 1rem;
+  min-width: 120px;
+}
+
+.weather-block .icon {
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -11,11 +11,16 @@
     <div class="mainContainer">
         <div class="header">Weather App</div>
         <div class="searchContainer">
-            <form id="searchForm">
-            <label for="searchInput">Search:</label>
-            <input type="text" class="searchInput" placeholder="Enter City Name Here" name="searchInput" id="searchInput" />
-            <button class="searchBtn" id="searchBtn" type="submit">Search</button>
-            </form>
+            <div class="searchBar">
+                <form id="searchForm">
+                <label for="searchInput">Search:</label>
+                <input type="text" class="searchInput" placeholder="Enter City Name Here" name="searchInput" id="searchInput" />
+                <button class="searchBtn" id="searchBtn" type="submit">Search</button>
+                </form>
+            </div>
+            <div class="unitsButtons">
+                <span class="units active" id="celciusButton">C</span> / <span class="units" id="fahrenheitButton">F</span>
+            </div>
         </div>
         <div class="weatherContainer">
         </div>
