@@ -7,7 +7,7 @@ import { showLoading, hideLoading } from './loader';
 let units = 'metric';
 let currentLocation = '';
 
-searchWeather("Jirnsum");
+searchWeather("Amsterdam");
 
 const searchForm = document.querySelector('#searchForm');
 const searchInput = document.getElementById('searchInput');
