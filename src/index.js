@@ -2,6 +2,7 @@ import './styles.css';
 import './resetStyles.css';
 import { getWeatherForLocation } from './weatherApi';
 import { displayWeather, displayError } from './displayWeather';
+import { showLoading, hideLoading } from './loader';
 
 let units = 'metric';
 let currentLocation = '';
@@ -36,12 +37,15 @@ farenheitButton.addEventListener('click', () => {
 
 async function searchWeather(location) {
   currentLocation = location;
+  showLoading();
   try {
     let weather = await getWeatherForLocation(location, units);
     displayWeather(weather);
+    hideLoading();
   }
   catch (error) {
     if (error.status === 400) {
+      hideLoading();
       displayError();
     }
   }

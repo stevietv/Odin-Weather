@@ -3,7 +3,6 @@ import { format } from 'date-fns';
 const weatherContainer = document.querySelector('.weatherContainer');
 
 export function displayWeather(data) {
-  weatherContainer.innerHTML = '';
   let weatherHeader = createWeatherHeader(data)
   weatherContainer.appendChild(weatherHeader);
 
@@ -36,7 +35,6 @@ function createWeatherBlock(day) {
 
   let iconContainer = document.createElement('img');
   iconContainer.classList.add('icon');
-  //iconContainer.src = icons(`./${day.icon}.png`);
 
   import(`./assets/${day.icon}.png`)
     .then((module) => {
